@@ -1,6 +1,6 @@
 console.log("Started renderer.js")
 
-ipc.send('connect', "10.6.23.2"); // connect to robot: 10.6.23.2 || self: 127.0.0.1
+ipc.send('connect', "192.168.254.227"); // connect to robot: 10.6.23.2 || benja: 192.168.254.227
 
 const COB = {
     set: function(cobKey, value) {
@@ -28,7 +28,9 @@ const COB_KEY = {
     driveMode: "/COB/driveMode",
     matchTime: "/COB/matchTime",
     matchColor: "/FMSInfo/IsRedAlliance",
-    ticks: "/COB/ticks"
+    ticks: "/COB/ticks",
+    balanced: "/COB/balanced",
+    pitchAngle: "/COB/pitchAngle"
 } // put all the keys here, and match the schema with the COB.h file in the codebase
 
 
@@ -51,6 +53,21 @@ COB.setListener(COB_KEY.flywheelRPM, value => {
 COB.setListener(COB_KEY.driveMode, value => { 
     document.getElementById("driveMode").innerText = value; 
 })
+
+let color = 0;
+COB.setListener(COB_KEY.balanced, value => { 
+    if (value) {color = "invert(75%) sepia(30%) saturate(753%) hue-rotate(115deg) brightness(85%) contrast(89%)" }
+    else {color = "invert(93%) sepia(93%) saturate(0%) hue-rotate(246deg) brightness(106%) contrast(104%)"}
+    document.getElementById("seesaw").style.filter = color;
+    //document.getElementById("seesaw").style.transform = 'rotate(' + ((deg2 / 10) % 360) + 'deg)'; 
+})
+
+let deg2 = 0;
+COB.setListener(COB_KEY.pitchAngle, value => {
+    deg2 += value;
+    document.getElementById("seesaw").style.transform = 'rotate(' + (deg2 % 360) + 'deg2)';
+})
+
 COB.setListener(COB_KEY.matchTime, value => { 
     let format = ":";
     if (Math.trunc(value - (Math.trunc(value / 60) * 60)) < 10) format = ":0";
@@ -90,6 +107,8 @@ function initAll(){
     COB.set(COB_KEY.matchTime, 150);
     COB.set(COB_KEY.matchPhase, "Phase: Match Not Started");
     COB.set(COB_KEY.ticks, 0);
+    COB.set(COB_KEY.balanced, false);
+    COB.set(COB_KEY.pitchAngle, 0);
 }
 
 

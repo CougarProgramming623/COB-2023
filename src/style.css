@@ -1,3 +1,6 @@
+body {
+    background-color: #344245;
+}
 div.title{
     display: inline-block;
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -24,6 +27,15 @@ div.angle {
     left:550px;
     top:20px;
     text-align: center;
+}
+div.balanced {
+    display: inline-block;
+    position: fixed;
+    left: 1000px;
+    top: 20px;
+    text-align: center;
+    color: black;
+    /*filter: invert(75%) sepia(30%) saturate(753%) hue-rotate(115deg) brightness(85%) contrast(89%);*/
 }
 #robotAngle {
     font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
