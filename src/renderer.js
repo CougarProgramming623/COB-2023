@@ -59,13 +59,10 @@ COB.setListener(COB_KEY.balanced, value => {
     if (value) {color = "invert(75%) sepia(30%) saturate(753%) hue-rotate(115deg) brightness(85%) contrast(89%)" }
     else {color = "invert(93%) sepia(93%) saturate(0%) hue-rotate(246deg) brightness(106%) contrast(104%)"}
     document.getElementById("seesaw").style.filter = color;
-    //document.getElementById("seesaw").style.transform = 'rotate(' + ((deg2 / 10) % 360) + 'deg)'; 
 })
 
-let deg2 = 0;
 COB.setListener(COB_KEY.pitchAngle, value => {
-    deg2 += value;
-    document.getElementById("seesaw").style.transform = 'rotate(' + (deg2 % 360) + 'deg2)';
+    document.getElementById("seesaw").style.transform = 'rotate(' + (value % 360) + 'deg)';
 })
 
 COB.setListener(COB_KEY.matchTime, value => { 
