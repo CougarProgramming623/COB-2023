@@ -57,7 +57,8 @@ COB.setListener(COB_KEY.driveMode, value => {
 let color = 0;
 COB.setListener(COB_KEY.balanced, value => { 
     if (value) {color = "invert(75%) sepia(30%) saturate(753%) hue-rotate(115deg) brightness(85%) contrast(89%)" }
-    else {color = "invert(93%) sepia(93%) saturate(0%) hue-rotate(246deg) brightness(106%) contrast(104%)"}
+    else {color = "invert(91%) sepia(5%) saturate(2394%) hue-rotate(184deg) brightness(101%) contrast(105%)"}
+    //invert(93%) sepia(93%) saturate(0%) hue-rotate(246deg) brightness(106%) contrast(104%) white
     document.getElementById("seesaw").style.filter = color;
     //document.getElementById("seesaw").style.transform = 'rotate(' + ((deg2 / 10) % 360) + 'deg)'; 
 })
