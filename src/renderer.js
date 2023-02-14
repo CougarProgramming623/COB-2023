@@ -1,6 +1,6 @@
 console.log("Started renderer.js")
 
-ipc.send('connect', "192.168.254.227"); // connect to robot: 10.6.23.2 || benja: 192.168.254.227
+ipc.send('connect', "10.123.242.143"); // connect to robot: 10.6.23.2 || benja: 192.168.254.227
 
 const COB = {
     set: function(cobKey, value) {
@@ -63,10 +63,8 @@ COB.setListener(COB_KEY.balanced, value => {
     //document.getElementById("seesaw").style.transform = 'rotate(' + ((deg2 / 10) % 360) + 'deg)'; 
 })
 
-let deg2 = 0;
 COB.setListener(COB_KEY.pitchAngle, value => {
-    deg2 += value;
-    document.getElementById("seesaw").style.transform = 'rotate(' + (deg2 % 360) + 'deg2)';
+    document.getElementById("seesaw").style.transform = 'rotate(' + (value % 360) + 'deg)';
 })
 
 COB.setListener(COB_KEY.matchTime, value => { 
