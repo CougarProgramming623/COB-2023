@@ -19,12 +19,13 @@ div.title{
     display: inline-block;
     /*font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
     font-family: TitleFont;
-    font-size: 30px;
+    font-size: 40px;
 }
 #title1{
     position: fixed;
     color: #3c89a2;
     top: -35px;
+    left: 20px;
 }
 #title2{
     position: fixed;
@@ -153,20 +154,42 @@ div.flywheel {
     color: aliceblue;
 }
 
+#armvalue {
+    display: inline-block;
+    position:fixed;
+    left:775px;
+    top:140px;
+    /*filter: invert(80%) sepia(99%) saturate(1399%) hue-rotate(184deg) brightness(458%) contrast(103%);*/
+    color: rgb(255, 159, 80);
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 20pt;
+}
+
 #arrow2 {
     display: inline-block;
     position:fixed;
     left:770px;
-    top:180px;
+    top:205px;
     /*filter: invert(80%) sepia(99%) saturate(1399%) hue-rotate(184deg) brightness(458%) contrast(103%);*/
     color: aliceblue;
+}
+
+#speedvalue {
+    display: inline-block;
+    position:fixed;
+    left:775px;
+    top:215px;
+    /*filter: invert(80%) sepia(99%) saturate(1399%) hue-rotate(184deg) brightness(458%) contrast(103%);*/
+    color: rgb(255, 159, 80);
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size: 20pt;
 }
 
 #arrow3 {
     display: inline-block;
     position:fixed;
     left:770px;
-    top:230px;
+    top:280px;
     /*filter: invert(80%) sepia(99%) saturate(1399%) hue-rotate(184deg) brightness(458%) contrast(103%);*/
     color: aliceblue;
 }
@@ -175,7 +198,7 @@ div.flywheel {
     display: inline-block;
     position:fixed;
     left:810px;
-    top:95px;
+    top:245px;
     color: aliceblue;
     font-family: Saira;
     font-size: 20pt;
@@ -185,7 +208,7 @@ div.flywheel {
     display: inline-block;
     position:fixed;
     left:810px;
-    top:145px;
+    top:170px;
     color: aliceblue;
     font-family: Saira;
     font-size: 20pt;
@@ -195,7 +218,7 @@ div.flywheel {
     display: inline-block;
     position:fixed;
     left:810px;
-    top:190px;
+    top:95px;
     color: aliceblue;
     font-family: Saira;
     font-size: 20pt;
