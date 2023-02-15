@@ -19,12 +19,13 @@ div.title{
     display: inline-block;
     /*font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
     font-family: TitleFont;
-    font-size: 30px;
+    font-size: 40px;
 }
 #title1{
     position: fixed;
     color: #3c89a2;
     top: -35px;
+    left: 20px;
 }
 #title2{
     position: fixed;
@@ -153,28 +154,20 @@ div.flywheel {
     color: aliceblue;
 }
 
-#arrow1:hover, #arrow1:focus    {
-    filter: invert(75%) sepia(30%) saturate(753%) hue-rotate(115deg) brightness(85%) contrast(89%)
-}
-
 #arrow2 {
     display: inline-block;
     position:fixed;
     left:770px;
-    top:180px;
+    top:205px;
     /*filter: invert(80%) sepia(99%) saturate(1399%) hue-rotate(184deg) brightness(458%) contrast(103%);*/
     color: aliceblue;
-}
-
-#arrow2:hover, #arrow2:focus    {
-    filter: invert(75%) sepia(30%) saturate(753%) hue-rotate(115deg) brightness(85%) contrast(89%)
 }
 
 #arrow3 {
     display: inline-block;
     position:fixed;
     left:770px;
-    top:230px;
+    top:280px;
     /*filter: invert(80%) sepia(99%) saturate(1399%) hue-rotate(184deg) brightness(458%) contrast(103%);*/
     color: aliceblue;
 }
@@ -187,7 +180,7 @@ div.flywheel {
     display: inline-block;
     position:fixed;
     left:810px;
-    top:95px;
+    top:245px;
     color: aliceblue;
     font-family: Saira;
     font-size: 20pt;
@@ -197,7 +190,7 @@ div.flywheel {
     display: inline-block;
     position:fixed;
     left:810px;
-    top:145px;
+    top:170px;
     color: aliceblue;
     font-family: Saira;
     font-size: 20pt;
@@ -207,7 +200,7 @@ div.flywheel {
     display: inline-block;
     position:fixed;
     left:810px;
-    top:190px;
+    top:95px;
     color: aliceblue;
     font-family: Saira;
     font-size: 20pt;
