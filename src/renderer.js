@@ -1,6 +1,6 @@
 console.log("Started renderer.js")
 
-ipc.send('connect', "10.123.242.143"); // connect to robot: 10.6.23.2 || benja: 192.168.254.227
+ipc.send('connect', "192.168.254.227"); // connect to robot: 10.6.23.2 || FRC623: 192.168.254.227
 
 const COB = {
     set: function(cobKey, value) {
@@ -96,7 +96,6 @@ COB.setListener(COB_KEY.matchColor, value => {
 COB.setListener(COB_KEY.ticks, value => { 
     document.getElementById("ticks").innerText = value;
 })
-
 
 function initAll(){
     COB.set(COB_KEY.navXReset, false);

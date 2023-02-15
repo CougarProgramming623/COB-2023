@@ -93,8 +93,8 @@ div.flywheel {
     font-size: 80pt;
     top: 50px;
     left: 50px;
-    /*color: rgb(218, 238, 255);*/
-    color: rgb(255, 159, 80);
+    color: rgb(218, 238, 255);
+    /*color: rgb(255, 159, 80);*/
     /*color: crimson;*/
 }
 
@@ -153,6 +153,10 @@ div.flywheel {
     color: aliceblue;
 }
 
+#arrow1:hover, #arrow1:focus    {
+    filter: invert(75%) sepia(30%) saturate(753%) hue-rotate(115deg) brightness(85%) contrast(89%)
+}
+
 #arrow2 {
     display: inline-block;
     position:fixed;
@@ -162,6 +166,10 @@ div.flywheel {
     color: aliceblue;
 }
 
+#arrow2:hover, #arrow2:focus    {
+    filter: invert(75%) sepia(30%) saturate(753%) hue-rotate(115deg) brightness(85%) contrast(89%)
+}
+
 #arrow3 {
     display: inline-block;
     position:fixed;
@@ -169,6 +177,10 @@ div.flywheel {
     top:230px;
     /*filter: invert(80%) sepia(99%) saturate(1399%) hue-rotate(184deg) brightness(458%) contrast(103%);*/
     color: aliceblue;
+}
+
+#arrow3:hover, #arrow3:focus    {
+    filter: invert(75%) sepia(30%) saturate(753%) hue-rotate(115deg) brightness(85%) contrast(89%)
 }
 
 #auto-select {
@@ -200,3 +212,67 @@ div.flywheel {
     font-family: Saira;
     font-size: 20pt;
 }
+
+/* Dropdown Button */
+/*.dropbtn {
+    background-color: #04AA6D;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+  }*/
+  
+  /* The container <div> - needed to position the dropdown content */
+div.dropdown {
+    position: relative;
+    display: inline;
+    left:770px;
+    top:115px;
+}
+
+div.dropdown2 {
+    position: relative;
+    display: inline;
+    left:770px;
+    top:135px;
+}
+
+div.dropdown3 {
+    position: relative;
+    display: inline;
+    left:770px;
+    top:155px;
+}
+  
+div.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(0,0,0,.35);;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+  /* Dropdown Content (Hidden by Default) */
+  
+  /* Links inside the dropdown */
+  div.dropdown-content a {
+    color: aliceblue;
+    padding: 12px 16px;
+    font-family: Saira;
+    text-decoration: none;
+    display: block;
+}
+  
+  /* Change color of dropdown links on hover */
+div.dropdown-content a:hover {background-color: #ddd;}
+  
+  /* Show the dropdown menu on hover */
+div.dropdown:hover .dropdown-content {display: block;}
+
+div.dropdown2:hover .dropdown-content {display: block;}
+
+div.dropdown3:hover .dropdown-content {display: block;}
+  
+  /* Change the background color of the dropdown button when the dropdown content is shown */
+div.dropdown:hover .dropbtn {background-color: #3e8e41;}
