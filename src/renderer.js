@@ -1,6 +1,6 @@
 console.log("Started renderer.js")
 
-ipc.send('connect', "192.168.254.227"); // connect to robot: 10.6.23.2 || FRC623: 192.168.254.227
+ipc.send('connect', "172.20.10.2"); // connect to robot: 10.6.23.2 || FRC623: 192.168.254.227
 
 const COB = {
     set: function(cobKey, value) {
@@ -30,7 +30,8 @@ const COB_KEY = {
     matchColor: "/FMSInfo/IsRedAlliance",
     ticks: "/COB/ticks",
     balanced: "/COB/balanced",
-    pitchAngle: "/COB/pitchAngle"
+    pitchAngle: "/COB/pitchAngle",
+    auto: "/COB/auto"
 } // put all the keys here, and match the schema with the COB.h file in the codebase
 
 
@@ -107,6 +108,19 @@ function initAll(){
     COB.set(COB_KEY.ticks, 0);
     COB.set(COB_KEY.balanced, false);
     COB.set(COB_KEY.pitchAngle, 0);
+    COB.set(COB_KEY.auto, "NO AUTO SELECTED"); 
+}
+
+COB.setListener(COB_KEY.auto, value => {
+    COB.set(COB_KEY.auto, document.getElementById("autos").options[AutoSelect.selectedIndex].text = value);
+})
+
+
+
+function getValue(){
+    var AutoSelect = document.getElementById("autos");
+    var selectedAuto = AutoSelect.options[AutoSelect.selectedIndex].text;
+    return selectedAuto;
 }
 
 
@@ -120,5 +134,9 @@ window.onload = () => { // this runs after the DOM has loaded
     document.getElementById("arrow").onclick = function() {
         COB.set(COB_KEY.robotAngle, 0.00);
         COB.set(COB_KEY.navXReset, true);
+    }
+
+    document.getElementById("autos").onclick = function() {
+        COB.set(COB_KEY.auto, document.getElementById("autos").options[AutoSelect.selectedIndex].text = value);
     }
 }

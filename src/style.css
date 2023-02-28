@@ -257,6 +257,11 @@ div.dropdown-content {
     z-index: 1;
 }
 
+#auto {
+    position: relative;
+
+}
+
   /* Dropdown Content (Hidden by Default) */
   
   /* Links inside the dropdown */
