@@ -111,11 +111,6 @@ function initAll(){
     COB.set(COB_KEY.auto, "NO AUTO SELECTED"); 
 }
 
-COB.setListener(COB_KEY.auto, value => {
-    COB.set(COB_KEY.auto, document.getElementById("autos").options[AutoSelect.selectedIndex].text = value);
-})
-
-
 
 function getValue(){
     var AutoSelect = document.getElementById("autos");
@@ -136,7 +131,7 @@ window.onload = () => { // this runs after the DOM has loaded
         COB.set(COB_KEY.navXReset, true);
     }
 
-    document.getElementById("autos").onclick = function() {
-        COB.set(COB_KEY.auto, document.getElementById("autos").options[AutoSelect.selectedIndex].text = value);
+    document.getElementById("autos").onchange = function() {
+        COB.set(COB_KEY.auto, document.getElementById("autos").options[autos.selectedIndex].text); //=value
     }
 }
