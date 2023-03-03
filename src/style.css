@@ -15,10 +15,16 @@ html {
     src: url(Fonts/SairaCondensed-ExtraLight.ttf);
 }
 
+@font-face {
+    font-family: Lexand;
+    src: url(Fonts/LexendDeca-VariableFont_wght.ttf);
+}
+
 div.title{
     display: inline-block;
     /*font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
-    font-family: TitleFont;
+    /*font-family: TitleFont;*/
+    font-family: Lexand;
     font-size: 40px;
 }
 #title1{
@@ -217,6 +223,16 @@ div.arrow1 {
     top:170px;
     color: aliceblue;
     font-family: Saira;
+    font-size: 20pt;
+}
+
+#speedvalue {
+    display: inline-block;
+    position:fixed;
+    left:775px;
+    top:207px;
+    color: crimson;
+    font-family: Lexand;
     font-size: 20pt;
 }
 
