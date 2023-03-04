@@ -31,7 +31,9 @@ const COB_KEY = {
     ticks: "/COB/ticks",
     balanced: "/COB/balanced",
     pitchAngle: "/COB/pitchAngle",
-    auto: "/COB/auto"
+    auto: "/COB/auto",
+    armValue: "/COB/armValue",
+    armAngle: "/COB/armAngle"
 } // put all the keys here, and match the schema with the COB.h file in the codebase
 
 
@@ -53,6 +55,14 @@ COB.setListener(COB_KEY.flywheelRPM, value => {
 })
 COB.setListener(COB_KEY.driveMode, value => { 
     document.getElementById("driveMode").innerText = value; 
+})
+
+COB.setListener(COB_KEY.armValue, value => {
+    document.getElementById("armvalue").innerText = Math.trunc(value).toString() + " CM";
+})
+
+COB.setListener(COB_KEY.armAngle, value => {
+    document.getElementById("speedvalue").innerText = Math.trunc(value).toString() + "°";
 })
 
 let color = 0;
@@ -109,15 +119,9 @@ function initAll(){
     COB.set(COB_KEY.balanced, false);
     COB.set(COB_KEY.pitchAngle, 0);
     COB.set(COB_KEY.auto, "NO AUTO SELECTED"); 
+    COB.set(COB_KEY.armValue, NaN);
+    COB.set(COB_KEY.armAngle, NaN);
 }
-
-
-function getValue(){
-    var AutoSelect = document.getElementById("autos");
-    var selectedAuto = AutoSelect.options[AutoSelect.selectedIndex].text;
-    return selectedAuto;
-}
-
 
 window.onload = () => { // this runs after the DOM has loaded
     /*document.getElementById("incr-foo").onclick = function() {
@@ -132,6 +136,7 @@ window.onload = () => { // this runs after the DOM has loaded
     }
 
     document.getElementById("autos").onchange = function() {
-        COB.set(COB_KEY.auto, document.getElementById("autos").options[autos.selectedIndex].text); //=value
+        COB.set(COB_KEY.auto, document.getElementById("autos").options[autos.selectedIndex].text);
     }
+
 }
