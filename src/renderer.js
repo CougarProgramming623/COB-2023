@@ -1,6 +1,6 @@
 console.log("Started renderer.js")
 
-ipc.send('connect', "172.20.10.2"); // connect to robot: 10.6.23.2 || FRC623: 192.168.254.227
+ipc.send('connect', "192.168.1.187"); // connect to wBot: 10.6.23.2 || FRC623(server): 192.168.254.227 || connect to saber: 10.6.24.2
 
 const COB = {
     set: function(cobKey, value) {
@@ -24,7 +24,7 @@ NetworkTables.getValue()
 const COB_KEY = {
     navXReset: "/COB/navXReset",
     robotAngle: "/COB/robotAngle",
-    flywheelRPM: "/COB/flywheelRPM",
+    // flywheelRPM: "/COB/flywheelRPM",
     driveMode: "/COB/driveMode",
     matchTime: "/COB/matchTime",
     matchColor: "/FMSInfo/IsRedAlliance",
@@ -46,13 +46,13 @@ COB.setListener(COB_KEY.robotAngle, value => {
     document.getElementById("arrow").style.transform = 'rotate(' + value + 'deg)'; 
 })
 
-let deg = 0;
-COB.setListener(COB_KEY.flywheelRPM, value => { 
-    deg = deg + value;
-    document.getElementById("flywheelRPM").innerText = Math.trunc(value).toString() + " RPM";
-    document.getElementById("flywheelDisplay").style.transform = 'rotate(' + ((deg / 10) % 360) + 'deg)'; 
+// let deg = 0;
+// COB.setListener(COB_KEY.flywheelRPM, value => { 
+//     deg = deg + value;
+//     document.getElementById("flywheelRPM").innerText = Math.trunc(value) + " RPM";
+//     document.getElementById("flywheelDisplay").style.transform = 'rotate(' + ((deg / 10) % 360) + 'deg)'; 
     
-})
+// })
 COB.setListener(COB_KEY.driveMode, value => { 
     document.getElementById("driveMode").innerText = value; 
 })
@@ -86,6 +86,10 @@ COB.setListener(COB_KEY.matchTime, value => {
 
     let phase;
     if (value > 135) { 
+        document.getElementById("timer").innerText = "0:" + (value - 135).toString();
+        if ((value - 135) < 10) {
+            document.getElementById("timer").innerText = "0:0" + (value - 135).toString();
+        }
         phase = "Autonomous";
     } else if (value > 30) {
         phase = "Tele-Op";
@@ -118,9 +122,9 @@ function initAll(){
     COB.set(COB_KEY.ticks, 0);
     COB.set(COB_KEY.balanced, false);
     COB.set(COB_KEY.pitchAngle, 0);
-    COB.set(COB_KEY.auto, "NO AUTO SELECTED"); 
-    COB.set(COB_KEY.armValue, NaN);
-    COB.set(COB_KEY.armAngle, NaN);
+    COB.set(COB_KEY.auto, "NO AUTO SELECTED");
+    COB.set(COB_KEY.armValue, 0);
+    COB.set(COB_KEY.armAngle, 0);
 }
 
 window.onload = () => { // this runs after the DOM has loaded
