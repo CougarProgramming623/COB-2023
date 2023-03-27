@@ -22,6 +22,7 @@
     "wpilib-nt-client": "^1.7.2"
   },
   "dependencies": {
-    "electron-reload": "^2.0.0-alpha.1"
+    "electron-reload": "^2.0.0-alpha.1",
+    "ipcjs": "^0.9.0"
   }
 }
