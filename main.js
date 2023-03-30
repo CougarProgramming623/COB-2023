@@ -1,3 +1,6 @@
+//import { NetworkTables, NetworkTablesTypeInfos } from 'ntcore-ts-client';
+const { NetworkTables, NetworkTablesTypeInfos } = require('ntcore-ts-client');
+
 const { app, BrowserWindow, ipcMain } = require('electron')
 const path = require('path')
 
@@ -48,10 +51,11 @@ function createWindow () {
     })
   })
 
-  // wpilib stuff
-const ntClient = require('wpilib-nt-client');
-const client = new ntClient.Client();
-client.setReconnectDelay(1000);
+// wpilib stuff
+//const ntClient = require('wpilib-nt-client');
+// const ntcore = NetworkTables.getInstanceByTeam(623);
+//const client = ntcore.client;
+//client.setReconnectDelay(1000);
 
 let clientDataListener = (key, val, valType, mesgType, id, flags) => {
     if (val === 'true' || val === 'false') {
@@ -70,10 +74,11 @@ ipc.on('ready', (ev, mesg) => {
     console.log('NetworkTables is ready');
 
     // Remove old Listener
-    client.removeListener(clientDataListener);
+    //client.removeListener(clientDataListener);
 
     // Add new listener with immediate callback
-    client.addListener(clientDataListener, true);
+    //client.addListener(clientDataListener, true);
+
 });
 // When the user chooses the address of the bot than try to connect
 ipc.on('connect', (ev, address, port) => {
@@ -82,23 +87,23 @@ ipc.on('connect', (ev, address, port) => {
           win.webContents.send('connected', connected); //throws error ere
         } catch(e){ /* errors but works */ }
     };
-    if (port) {
-        client.start(callback, address, port);
-    } else {
-        client.start(callback, address);
-        console.log("connecting to " + address)
-    }
+    // if (port) {
+    //     client.start(callback, address, port);
+    // } else {
+    //     client.start(callback, address);
+    //     console.log("connecting to " + address)
+    // }
   });
-  ipc.on('stop-connect', () => {
-    client.stop()
-  });
-  ipc.on('add', (ev, mesg) => {
-    client.Assign(mesg.val, mesg.key, (mesg.flags & 1) === 1);
-  });
-  ipc.on('update', (ev, mesg) => {
-    client.Update(mesg.id, mesg.val);
-  });
-  ipc.on('delete', (ev, mesg) => {
-    client.Delete(mesg.id)
-  });
-client.addListener(clientDataListener, true);
+//   ipc.on('stop-connect', () => {
+//     client.stop()
+//   });
+//   ipc.on('add', (ev, mesg) => {
+//     client.Assign(mesg.val, mesg.key, (mesg.flags & 1) === 1);
+//   });
+//   ipc.on('update', (ev, mesg) => {
+//     client.Update(mesg.id, mesg.val);
+//   });
+//   ipc.on('delete', (ev, mesg) => {
+//     client.Delete(mesg.id)
+//   });
+// client.addListener(clientDataListener, true);

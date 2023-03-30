@@ -1,7 +1,4 @@
 ipc = require('electron').ipcRenderer;
-import { NetworkTables } from 'ntcore-ts-client'
-
-NetworkTables.getInstanceByTeam(623, port = 5810)
 
 // defines a global variable NetworkTables with a bunch of functions that are helpful :tm:
 const NetworkTables = 
