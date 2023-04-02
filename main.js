@@ -53,9 +53,30 @@ function createWindow () {
 
 // wpilib stuff
 //const ntClient = require('wpilib-nt-client');
-// const ntcore = NetworkTables.getInstanceByTeam(623);
+const ntcore = NetworkTables.getInstanceByTeam(623);
 //const client = ntcore.client;
 //client.setReconnectDelay(1000);
+
+function createTopic(string, NetworkTablesTypeInfo, string) {
+  return new NetworkTablesTopic<T>(this._client, typeInfo, defaultValue);
+};
+
+//const autoModeTopic = ntcore.createTopic<string>('/COB/autoMode', NetworkTablesTypeInfos.kString, 'No Auto');
+const autoModeTopic = ntcore.createTopic('/COB/autoMode', NetworkTablesTypeInfos.kString, "no auto");
+
+// Make us the publisher
+autoModeTopic.publish();
+
+// Set a new value, this will error if we aren't the publisher!
+autoModeTopic.setValue('PUSHINGGGGGGG');
+
+
+const timerTopic = ntcore.createTopic('/COB/matchTime', NetworkTablesTypeInfos.kDouble, 0);
+
+timerTopic.subscribe((value) =>{
+  console.log('Gyro Value: ' + value);
+}, true);
+
 
 let clientDataListener = (key, val, valType, mesgType, id, flags) => {
     if (val === 'true' || val === 'false') {

@@ -1,22 +1,22 @@
-const { NetworkTables, NetworkTablesTypeInfos } = require("ntcore-ts-client");
+NetworkTables, NetworkTablesTypeInfos = require("ntcore-ts-client");
 
 console.log("Started renderer.js")
 
 ipc.send('connect', "10.6.23.2"); // connect to wBot: 10.6.23.2 || FRC623(server): 192.168.254.227 || connect to saber: 10.6.24.2
 
-// const COB = {
-//     set: function(cobKey, value) {
-//         NetworkTables.putValue(cobKey, value);
-//     },
-//     get: function(cobKey, def) {
-//         return NetworkTables.getValue(cobKey, def);
-//     },
-//     // key: the key to use
-//     // f: (newValue, isNew) => ...
-//     setListener: function(key, f) {
-//         NetworkTables.addKeyListener(key, (newKey, newValue, isNew) => f(newValue, isNew), true);
-//     }
-// }
+const COB = {
+    set: function(cobKey, value) {
+        NetworkTables.putValue(cobKey, value);
+    },
+    get: function(cobKey, def) {
+        return NetworkTables.getValue(cobKey, def);
+    },
+    // key: the key to use
+    // f: (newValue, isNew) => ...
+    setListener: function(key, f) {
+        NetworkTables.addKeyListener(key, (newKey, newValue, isNew) => f(newValue, isNew), true);
+    }
+}
 
 NetworkTables.addRobotConnectionListener((con) => { console.log("connected", con) }, false);
 NetworkTables.getValue()
@@ -37,12 +37,13 @@ const COB_KEY = {
     armAngle: "/COB/armAngle"
 } // put all the keys here, and match the schema with the COB.h file in the codebase
 
-const ntcore = NetworkTables.getInstanceByTeam(623);
-const gyro = ntcore.createTopic<number>('/COB/Gyro', NetworkTablesTypeInfos.kDouble, 65);
+//const ntcore = NetworkTables.getInstanceByTeam(623);
+//ntcore = NetworkTables.getInstanceByTeam(623);
+// const gyro = ntcore.createTopic<number>('/COB/Gyro', NetworkTablesTypeInfos.kDouble, 65);
 
-gyro.subscribe((value) => {
-    console.log('Got Gyro: ' + value);
-}, true);
+// gyro.subscribe((value) => {
+//     console.log('Got Gyro: ' + value);
+// }, true);
 
 // const autoModeTopic = ntcore.createTopic<string>('/COB/smth', NetworkTablesTypeInfos.kString, 'no auto');
 // autoModeTopic.publish();
