@@ -1,6 +1,6 @@
 console.log("Started renderer.js")
 
-ipc.send('connect', "192.168.1.176"); // connect to wBot: 10.6.23.2 || FRC623(server): 192.168.254.227 || connect to saber: 10.6.24.2
+ipc.send('connect', "10.6.23.2"); // connect to wBot: 10.6.23.2 || FRC623(server): 192.168.254.227 || connect to saber: 10.6.24.2
 
 const COB = {
     set: function(cobKey, value) {

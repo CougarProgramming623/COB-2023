@@ -48,7 +48,7 @@ function createWindow () {
     })
   })
 
-  // wpilib stuff
+// wpilib stuff
 const ntClient = require('wpilib-nt-client');
 const client = new ntClient.Client();
 client.setReconnectDelay(1000);
@@ -80,7 +80,9 @@ ipc.on('connect', (ev, address, port) => {
     let callback = (connected, err) => {
         try{
           win.webContents.send('connected', connected); //throws error ere
-        } catch(e){ /* errors but works */ }
+        } catch(e){ 
+          console.log("in the error");
+          /* errors but works */ }
     };
     if (port) {
         client.start(callback, address, port);
