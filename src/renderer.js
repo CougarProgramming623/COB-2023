@@ -91,9 +91,55 @@ robotAngleTopic.subscribe((value) => {
     document.getElementById("arrow").style.transform = 'rotate(' + value + 'deg)'; 
 })
 
-const armValueTopic = ntcore.createTopic('/COB/armValue', NetworkTablesTypeInfos.kDouble, 0);
-armValueTopic.subscribe((value) => {
-    document.getElementById("armvalue").innerText = Math.trunc(value).toString() + " CM";
+
+//limelight
+const deltaXTopic = ntcore.createTopic('/COB/deltaX', NetworkTables.kDouble, 0);
+deltaXTopic.subscribe((value) => {
+    document.getElementById("deltaX").innerText = "X: " + Math.trunc(value).toString();
+})
+
+const deltaYTopic = ntcore.createTopic('/COB/deltaY', NetworkTables.kDouble, 0);
+deltaYTopic.subscribe((value) => {
+    document.getElementById("deltaY").innerText = "Y: " + Math.trunc(value).toString();
+})
+
+const deltaTTopic = ntcore.createTopic('/COB/deltaT', NetworkTables.kDouble, 0);
+deltaTTopic.subscribe((value) => {
+    document.getElementById("deltaT").innerText = "θ: " + Math.trunc(value).toString();
+})
+
+const ATIDTopic = ntcore.createTopic('/COB/apriltagID', NetworkTables.kDouble);
+ATIDTopic.subscribe((value) => {
+    document.getElementById("apriltagpic").innerText = "ID: " + Math.trunc(value).toString();
+    console.log(value);
+    switch(value) {
+        case 1:
+            document.getElementById("apriltagIMG").src="./images/AP1.png"
+            break;
+        case 2:
+            document.getElementById("apriltagIMG").src="./images/AP2.png"
+            break;
+        case 3:
+            document.getElementById("apriltagIMG").src="./images/AP3.png"
+            break;
+        case 4:
+            document.getElementById("apriltagIMG").src="./images/AP4.png"
+            break;
+        case 5:
+            document.getElementById("apriltagIMG").src="./images/AP5.png"
+            break;
+        case 6:
+            document.getElementById("apriltagIMG").src="./images/AP6.png"
+            break;
+        case 7:
+            document.getElementById("apriltagIMG").src="./images/AP7.png"
+            break;    
+        case 8:
+            document.getElementById("apriltagIMG").src="./images/AP8.png"
+            break;     
+        default:
+            document.getElementById("apriltagIMG").src="./images/frownyCOB1.png"
+    }
 })
 
 const armAngleTopic = ntcore.createTopic('/COB/armAngle', NetworkTablesTypeInfos.kDouble, 0);

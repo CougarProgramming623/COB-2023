@@ -132,7 +132,7 @@ div.flywheel {
     background-color: rgba(0,0,0,.35);
 }
 
-#apriltag1 {
+#apriltagIMG {
     display:inline-flex;
     position:fixed;
     left:1040px;
@@ -220,10 +220,30 @@ div.arrow1 {
     font-size: 20pt;
 }
 
-#armvalue {
+#deltaX {
     display: inline-block;
     position:fixed;
     left:775px;
+    top:280px;
+    color: rgb(255, 120, 57);
+    font-family: Saira;
+    font-size: 20pt;
+}
+
+#deltaY {
+    display: inline-block;
+    position:fixed;
+    left:825px;
+    top:280px;
+    color: rgb(255, 120, 57);
+    font-family: Saira;
+    font-size: 20pt;
+}
+
+#deltaT {
+    display: inline-block;
+    position:fixed;
+    left:875px;
     top:280px;
     color: rgb(255, 120, 57);
     font-family: Saira;
