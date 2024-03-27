@@ -28,7 +28,8 @@ const COB_KEY = {
     driveMode: "/COB/driveMode",
     matchTime: "/COB/matchTime",
     matchColor: "/FMSInfo/IsRedAlliance",
-    ticks: "/COB/ticks"
+    ticks: "/COB/ticks",
+    fiveVolt: "/COB/5Volt"
 } // put all the keys here, and match the schema with the COB.h file in the codebase
 
 
@@ -90,6 +91,7 @@ function initAll(){
     COB.set(COB_KEY.matchTime, 150);
     COB.set(COB_KEY.matchPhase, "Phase: Match Not Started");
     COB.set(COB_KEY.ticks, 0);
+    COB.set(COB_KEY.fiveVolt, 0);
 }
 
 

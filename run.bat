@@ -1,4 +1,4 @@
-cd C:\Users\Carso\Desktop\VSCode\COB-2022
+cd /Users/benjahabyarimana/Code/COB-2023
 :a
 call npm start
 goto a
